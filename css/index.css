@@ -2,26 +2,34 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    color: white;
     box-sizing: border-box;
 }
 body{
-    background-color:rgb(241, 205, 255);
+    background-color:rgb(41, 50, 78);
 }
 header{
+    background-color: rgba(255, 255, 255, 0.05);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 120px;
     display: flex;
     justify-content:start;
     align-items: center;
     padding: 30px 100px;
 }
 header img{
-    width: 150px;
-    height: 150px;
+    width: 70px;
+    height: 70px;
     object-fit:cover;
-    border-radius: 75px;
+    border-radius: 70px;
 }
 header h1{
     font-family: 'Bruno Ace SC', cursive;
-    font-size: 60px;
+    font-size: 40px;
+    color: white;
     padding: 10px;
 
 }
@@ -31,6 +39,7 @@ main{
     padding: 30px;
     justify-content:center;
     align-items:center;
+    margin-top: 130px;
 }
 .download-list{
     display: grid;
@@ -45,7 +54,7 @@ main{
     justify-content: center;
     align-items: center;
     padding: 5px 10px;
-    border: 2px solid black;
+    border: 2px solid white;
     border-right: none;
 }
 .download-link-title{
@@ -57,14 +66,14 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid white;
 }  
 .video-name{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px 10px;
-    border: 2px solid black;
+    border: 2px solid white;
     border-top: none;
     border-right: none;
 }
@@ -75,6 +84,6 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid white;
     border-top: none;
 }  
