@@ -1,0 +1,95 @@
+apt update && apt upgrade -y
+
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoremove -y 
+
+apt-get -y install build-essential wget curl gcc make wget tzdata git libreadline-dev libncurses-dev libssl-dev zlib1g-dev
+
+wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.39-9772-beta/softether-vpnserver-v4.39-9772-beta-2022.04.26-linux-x64-64bit.tar.gz
+
+tar xvf so
+
+cd vpnserver/
+
+sudo apt install gcc binutils gzip libreadline-dev libssl-dev libncurses5-dev libncursesw5-dev libpthread-stubs0-dev
+
+sudo make
+
+cd ..
+sudo mv vpnserver /usr/local && cd /usr/local/vpnserver/
+
+sudo chmod 600 *
+
+sudo chmod 700 vpnserver vpncmd
+
+sudo ./vpnserver start
+
+sudo ./vpncmd
+
+1
+
+enter
+
+enter
+
+ServerPasswordSet
+
+exit
+
+**************************************************
+
+جای گذاری یکجا همه دستور
+
+
+sudo cat >> /lib/systemd/system/vpnserver.service << EOF
+
+[Unit]
+
+Description=SoftEther VPN Server
+
+After=network.target
+
+[Service]
+
+Type=forking
+
+ExecStart=/usr/local/vpnserver/vpnserver start
+
+ExecStop=/usr/local/vpnserver/vpnserver stop
+
+[Install]
+
+WantedBy=multi-user.target
+
+EOF
+
+****************************************************
+
+echo net.ipv4.ip_forward = 1 | ${SUDO} tee -a /etc/sysctl.conf
+
+echo net.ipv6.ip_forward = 1 | ${SUDO} tee -a /etc/sysctl.conf
+
+****************************************************
+
+systemctl enable vpnserver
+
+systemctl start vpnserver
+
+systemctl stop vpnserver
+
+systemctl restart vpnserver
+
+systemctl status vpnserver
+
+****************************************************
+
+sudo ufw allow 500,4500/udp
+
+ufw allow 443
+
+ufw allow 1701
+
+ufw allow 1194
+
+ufw allow 5555
+
+****************************************************
