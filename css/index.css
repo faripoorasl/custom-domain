@@ -15,6 +15,10 @@ main{
     justify-content:center;
     align-items:center;
     margin-top: 130px;
+
+}
+main iframe{
+    border-radius: 5px;
 }
 .download-list{
     display: grid;
