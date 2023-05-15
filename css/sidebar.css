@@ -12,23 +12,23 @@ nav{
     box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.199);
     box
 }
-.thambnail{
+.thumbnail{
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.thambnail:hover{
+.thumbnail:hover{
     background-color: rgba(0, 0, 0, 0.233);
 
 }
-.thambnail img{
+.thumbnail img{
     width: 180px;
     border-radius: 5px;
     opacity: 0.5;
     transition: 0.3s;
 }
-.thambnail img:hover{
+.thumbnail img:hover{
     opacity: 1;
     border-radius: 0;
 }
