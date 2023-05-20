@@ -37,8 +37,6 @@ exit
 
 **************************************************
 
-جای گذاری یکجا همه دستور
-
 
 sudo cat >> /lib/systemd/system/vpnserver.service << EOF
 
