@@ -1,0 +1,99 @@
+# Update package lists and perform upgrades for installed packages
+sudo apt update && sudo apt upgrade -y
+
+# Reboot the system
+reboot
+
+# Install and set up the Apache2 web server
+sudo apt install apache2 -y 
+
+# Start the Apache2 service
+sudo service apache2 start
+
+# Install PHP and the Apache module for PHP
+sudo apt install php libapache2-mod-php php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-zip -y 
+
+# Install MariaDB Server
+sudo apt install mariadb-server -y
+
+sudo mysql_secure_installation
+
+# Log in to the MariaDB  environment as the root user
+sudo mysql -u root
+
+# Create a new user 'newuser' with the specified password
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'yourpassword';
+
+# Create a new database 'new_database'
+CREATE DATABASE new_database;
+
+# Grant all privileges to 'newuser' on 'new_database' database
+GRANT ALL PRIVILEGES ON new_database.* TO 'newuser'@'localhost';
+
+# Apply the privilege changes
+FLUSH PRIVILEGES;
+
+# Exit the MySQL environment
+exit;
+
+# Restart MySQL service
+sudo systemctl restart mariadb
+
+# Install wget and unzip
+sudo apt install wget unzip -y
+
+# Download the latest WordPress package
+wget https://wordpress.org/latest.zip
+
+# Unzip the WordPress package
+sudo unzip latest.zip
+
+# Move the WordPress files to the web server directory
+sudo mv wordpress/ /var/www/html/
+
+# Remove the downloaded zip file
+sudo rm latest.zip
+
+# Set the appropriate ownership for WordPress files
+sudo chown www-data:www-data -R /var/www/html/wordpress/
+
+# Set permissions for WordPress files
+sudo chmod -R 755 /var/www/html/wordpress/
+
+# Create and edit the Apache virtual host configuration file for WordPress
+sudo nano /etc/apache2/sites-available/wordpress.conf
+
+# Add the following configuration to the file:
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    DocumentRoot /var/www/html/wordpress
+    ServerName example.com
+    ServerAlias www.example.com
+    <Directory /var/www/html/wordpress/>
+        Options FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+# Enable the WordPress site configuration
+sudo a2ensite wordpress.conf
+
+# Enable the Apache rewrite module
+sudo a2enmod rewrite
+
+# Disable the default Apache site configuration
+sudo a2dissite 000-default.conf
+
+# Reload Apache to apply the changes
+sudo systemctl reload apache2
+
+# Install SSL certificate using Certbot
+sudo apt install certbot python3-certbot-apache -y
+
+# Obtain an SSL certificate for your domain (replace 'yourdomain' with your domain)
+sudo certbot --apache -d yourdomain.com -d www.yourdomain.com
+
+# The above command will automatically configure SSL for your domain with Apache.

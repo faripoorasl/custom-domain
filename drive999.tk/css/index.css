@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    box-sizing: border-box;
+}
+body{
+    background-color:rgb(41, 50, 78);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-content:center;
+    align-items:center;
+    margin-top: 130px;
+
+}
+main iframe{
+    border-radius: 5px;
+}
+.download-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+}
+.video-name-title{
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border: 2px solid white;
+    border-right: none;
+    border-radius: 10px 0 0 0;
+}
+.download-link-title{
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 0 10px 0 0 ;
+}  
+.video-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border: 2px solid white;
+    border-top: none;
+    border-right: none;
+    border-radius: 0 0 0 10px;
+}
+.download-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-top: none;
+    border-radius: 0 0 10px 0;
+}  

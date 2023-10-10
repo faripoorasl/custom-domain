@@ -1,0 +1,34 @@
+nav{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 120px;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.377);
+    z-index: 200;
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.199);
+    box
+}
+.thumbnail{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.thumbnail:hover{
+    background-color: rgba(0, 0, 0, 0.233);
+
+}
+.thumbnail img{
+    width: 180px;
+    border-radius: 5px;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+.thumbnail img:hover{
+    opacity: 1;
+    border-radius: 0;
+}
