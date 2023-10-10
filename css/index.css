@@ -47,7 +47,26 @@ main iframe{
     align-items: center;
     border: 2px solid white;
     border-radius: 0 10px 0 0 ;
-}  
+} 
+.video-name-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border: 2px solid white;
+    border-top: none;
+    border-right: none;
+}
+.download-link-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-top: none;
+} 
 .video-name{
     display: flex;
     justify-content: center;
